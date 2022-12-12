@@ -1,21 +1,27 @@
 package com.knubisoft.graphql.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Book {
 
-    public int getId() {
-        return Id;
-    }
-
-    public void setId(int id) {
-        Id = id;
-    }
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false)
     private int Id;
 
     private String title;
 
     private int pages;
     private String author;
+
+    public int getId() {
+        return Id;
+    }
 
     public int getPages() {
         return pages;

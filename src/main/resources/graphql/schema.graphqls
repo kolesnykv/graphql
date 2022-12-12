@@ -1,12 +1,17 @@
+directive @id(
+    autogenerate: Boolean! = true
+    unique: Boolean! = true
+) on FIELD_DEFINITION
+
 type Book {
-    id: ID!,
+    id: ID! @id,
     title: String,
     pages: Int,
     author: String,
 }
 
 type Mutation {
-    createBook(id: Int, title: String, author: String, pages: Int):Book
+    createBook(title: String, author: String, pages: Int):Book
 }
 type Query {
     allBooks: [Book]
